@@ -3,7 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2005
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optiek_Declercq", "Optiek_Declercq\Optiek_Declercq.csproj", "{4C912CEF-C787-4926-8B3F-D0B81CEB05F8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interface", "Interface", "{E7E1488D-644D-444E-93FF-0B75AE61DC81}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repository", "Repository", "{A88DC82B-6ED7-4D36-B41A-72902ADA3B8A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{80013234-21BA-4C20-8414-9D6EAAA113E5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{3C90EAA5-5B3C-4AB4-8D09-48431318A4D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optiek_Declercq.UI", "Optiek_Declercq.UI\Optiek_Declercq.UI.csproj", "{9F3A7F37-5626-41D1-BCC3-74C07736D3D1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optiek_Declercq.Model", "Optiek_Declercq.Model\Optiek_Declercq.Model.csproj", "{C4A45298-372E-4D8A-8FDC-5DEA44DE4ED3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Optiek_Declercq.Repository", "Optiek_Declercq.Repository\Optiek_Declercq.Repository.csproj", "{BD2B1770-FEDC-4FD1-95C5-E8BD6C85E0A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optiek_Declercq.Services", "Optiek_Declercq.Services\Optiek_Declercq.Services.csproj", "{CF605487-6013-42D3-AD6C-F4F12CC7FFE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,13 +25,31 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4C912CEF-C787-4926-8B3F-D0B81CEB05F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4C912CEF-C787-4926-8B3F-D0B81CEB05F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4C912CEF-C787-4926-8B3F-D0B81CEB05F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4C912CEF-C787-4926-8B3F-D0B81CEB05F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F3A7F37-5626-41D1-BCC3-74C07736D3D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F3A7F37-5626-41D1-BCC3-74C07736D3D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F3A7F37-5626-41D1-BCC3-74C07736D3D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F3A7F37-5626-41D1-BCC3-74C07736D3D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4A45298-372E-4D8A-8FDC-5DEA44DE4ED3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4A45298-372E-4D8A-8FDC-5DEA44DE4ED3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4A45298-372E-4D8A-8FDC-5DEA44DE4ED3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4A45298-372E-4D8A-8FDC-5DEA44DE4ED3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD2B1770-FEDC-4FD1-95C5-E8BD6C85E0A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD2B1770-FEDC-4FD1-95C5-E8BD6C85E0A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD2B1770-FEDC-4FD1-95C5-E8BD6C85E0A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD2B1770-FEDC-4FD1-95C5-E8BD6C85E0A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF605487-6013-42D3-AD6C-F4F12CC7FFE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF605487-6013-42D3-AD6C-F4F12CC7FFE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF605487-6013-42D3-AD6C-F4F12CC7FFE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF605487-6013-42D3-AD6C-F4F12CC7FFE5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9F3A7F37-5626-41D1-BCC3-74C07736D3D1} = {E7E1488D-644D-444E-93FF-0B75AE61DC81}
+		{C4A45298-372E-4D8A-8FDC-5DEA44DE4ED3} = {A88DC82B-6ED7-4D36-B41A-72902ADA3B8A}
+		{BD2B1770-FEDC-4FD1-95C5-E8BD6C85E0A9} = {A88DC82B-6ED7-4D36-B41A-72902ADA3B8A}
+		{CF605487-6013-42D3-AD6C-F4F12CC7FFE5} = {80013234-21BA-4C20-8414-9D6EAAA113E5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C57E7AAD-80F7-4433-A649-BABD03915AEA}
