@@ -35,6 +35,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>VivesLogoIcon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="GalaSoft.MvvmLight, Version=5.3.0.19026, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.3.0.0\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
@@ -71,12 +74,15 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ViewModel\Administratie\EditInvoiceViewModel.cs" />
+    <Compile Include="ViewModel\Administratie\QuotationInvoiceViewModel.cs" />
     <Compile Include="ViewModel\Administratie\_InvoiceViewModel.cs" />
     <Compile Include="ViewModel\Administratie\NewInvoiceViewModel.cs" />
     <Compile Include="ViewModel\Help\InfoViewModel.cs" />
     <Compile Include="ViewModel\Klantbestand\KlantbestandViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\Print\PrintPreviewViewModel.cs" />
+    <Compile Include="ViewModel\Print\PrintViewModel.cs" />
+    <Compile Include="ViewModel\Shared\DashBoardViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="Views\Administratie\InvoiceView.xaml.cs">
       <DependentUpon>InvoiceView.xaml</DependentUpon>
@@ -89,6 +95,9 @@
     </Compile>
     <Compile Include="Views\Print\PrintPreviewView.xaml.cs">
       <DependentUpon>PrintPreviewView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\DashBoard.xaml.cs">
+      <DependentUpon>DashBoard.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -126,6 +135,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Shared\DashBoard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -155,9 +168,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModel\Shared\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Optiek_Declercq.Model\Optiek_Declercq.Model.csproj">
       <Project>{15dae08e-d710-459e-985d-181c4bc79178}</Project>
@@ -171,6 +182,9 @@
       <Project>{b0ca6201-ca47-481a-bf74-c2bc5becd55b}</Project>
       <Name>Optiek_Declercq.Services</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="VivesLogoIcon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

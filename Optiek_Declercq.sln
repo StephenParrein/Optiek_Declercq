@@ -21,6 +21,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optiek_Declercq.Services", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optiek_Declercq.Exception", "Optiek_Declercq.Exception\Optiek_Declercq.Exception.csproj", "{032AD8F4-7910-4DE5-A328-3E9D6B7E7A0F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{CE2157B3-9362-46F4-A661-0F51BDF78169}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\..\Data\Vives\Vakken jaar 3\Afgewerkt\Applications for windows 1\Opdrachten\Vives_Rental_Parrein_Stephen_v20190801\VivesRental.UI\VivesLogoIcon.ico = ..\..\..\..\..\Data\Vives\Vakken jaar 3\Afgewerkt\Applications for windows 1\Opdrachten\Vives_Rental_Parrein_Stephen_v20190801\VivesRental.UI\VivesLogoIcon.ico
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

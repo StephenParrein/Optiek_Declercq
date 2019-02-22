@@ -3,6 +3,8 @@ using GalaSoft.MvvmLight.Command;
 using Optiek_Declercq.UI.ViewModel.Administratie;
 using Optiek_Declercq.UI.ViewModel.Help;
 using Optiek_Declercq.UI.ViewModel.Klantbestand;
+using Optiek_Declercq.UI.ViewModel.Print;
+using Optiek_Declercq.UI.ViewModel.Shared;
 using System;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -10,9 +12,9 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace Optiek_Declercq.UI.ViewModel
 {
-    /// <summary>
+    /// <MainVMSummary>
     /// The MainViewModel targets navigation within the application.
-    /// </summary>
+    /// </MainVMSummary>
     public class MainViewModel : ViewModelBase
     {
         //Properties
@@ -48,13 +50,17 @@ namespace Optiek_Declercq.UI.ViewModel
             }
         }
 
-        /// <summary>
+        /// <CommandSummary>
         /// Navigation link between ViewModel and View can be found in App.xaml
-        /// </summary>
+        /// </CommandSummary>
         //Administratie
         public ICommand NavNewInvoiceCommand { get; set; }
         public ICommand NavEditInvoiceCommand { get; set; }
         public ICommand SaveInvoiceCommand { get; set; }
+
+        //Print
+        public ICommand NavPrintCommand { get; set; }
+        public ICommand NavPrintPreviewCommand { get; set; }
 
         //Klantbestand
         public ICommand NavClientsCommand { get; set; }
@@ -67,15 +73,27 @@ namespace Optiek_Declercq.UI.ViewModel
         //Help
         public ICommand NavInfoCommand { get; set; }
 
+        //Shared
+        public ICommand NavDashboardCommand { get; set; }
+
         public MainViewModel()
         {
             NavNewInvoiceCommand = new RelayCommand(ExecNavNewInvoiceCommand);
             NavEditInvoiceCommand = new RelayCommand(ExecNavEditInvoiceCommand);
             SaveInvoiceCommand = new RelayCommand(ExecSaveInvoiceCommand);
+
             NavInvoiceDeliveryCommand = new RelayCommand(ExecNavInvoiceDeliveryCommand);
+            NavClientsCommand = new RelayCommand(ExecNavClientsCommand);
             NavInvoiceCommand = new RelayCommand(ExecNavInvoiceCommand);
             NavInvoiceAllCommand = new RelayCommand(ExecNavInvoiceAllCommand);
             NavInfoCommand = new RelayCommand(ExecNavInfoCommand);
+
+            NavPrintCommand = new RelayCommand(ExecNavPrintCommand);
+            NavPrintPreviewCommand = new RelayCommand(ExecNavPrintPreviewCommand);
+
+            NavDashboardCommand = new RelayCommand(ExecNavDashboardCommand);
+
+            ExecNavDashboardCommand();
 
         }
 
@@ -120,6 +138,21 @@ namespace Optiek_Declercq.UI.ViewModel
             NavigateToPage(new InfoViewModel());
         }
 
+        private void ExecNavPrintCommand()
+        {
+            NavigateToPage(new PrintViewModel());
+        }
+
+        private void ExecNavPrintPreviewCommand()
+        {
+            NavigateToPage(new PrintPreviewViewModel());
+        }
+
+        private void ExecNavDashboardCommand()
+        {
+            NavigateToPage(new DashBoardViewModel());
+        }
+
         private void NavigateToPage(ViewModelBase viewModel)
         {
             try { 
@@ -133,6 +166,5 @@ namespace Optiek_Declercq.UI.ViewModel
                 Console.Write(e.StackTrace);
             }
         }
-
     }
 }

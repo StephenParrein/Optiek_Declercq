@@ -11,6 +11,10 @@
              xmlns:vmAdministation="clr-namespace:Optiek_Declercq.UI.ViewModel.Administratie"
              xmlns:vPrint="clr-namespace:Optiek_Declercq.UI.Views.Print"
              xmlns:vmPrint="clr-namespace:Optiek_Declercq.UI.ViewModel.Print"
+             xmlns:vHelp="clr-namespace:Optiek_Declercq.UI.Views.Help"
+             xmlns:vmHelp="clr-namespace:Optiek_Declercq.UI.ViewModel.Help"
+             xmlns:vShared="clr-namespace:Optiek_Declercq.UI.Views.Shared"
+             xmlns:vmShared="clr-namespace:Optiek_Declercq.UI.ViewModel.Shared"
              StartupUri="MainWindow.xaml"
              mc:Ignorable="d ignore">
     
@@ -41,8 +45,17 @@
         <DataTemplate DataType="{x:Type vmPrint:PrintPreviewViewModel}">
             <vPrint:PrintPreviewView/>
         </DataTemplate>
-
         
+        <!--Help view model-->
+        <DataTemplate DataType="{x:Type vmHelp:InfoViewModel}">
+            <vHelp:InfoView/>
+        </DataTemplate>
+        
+        <!--Shared-->
+        <DataTemplate DataType="{x:Type vmShared:DashBoardViewModel}">
+            <vShared:DashBoard/>
+        </DataTemplate>
+
     </Application.Resources>
     
 </Application>

@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Optiek_Declercq.Services
+namespace Optiek_Declercq.UI.Views.Shared
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for DashBoard.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class DashBoard : Page
     {
-        public MainWindow()
+        public DashBoard()
         {
             InitializeComponent();
         }

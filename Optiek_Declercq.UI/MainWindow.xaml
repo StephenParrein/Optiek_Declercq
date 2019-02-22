@@ -50,11 +50,11 @@
                     <MenuItem Header="_Offertes" Command="{}"/>
                     <MenuItem Header="_Alles" Command="{Binding NavInvoiceAllCommand}"/>
                 </MenuItem>
-                <MenuItem HorizontalAlignment="Right" Header="_Info"></MenuItem>
+                <MenuItem Header="_Info" Command="{Binding NavInfoCommand}"></MenuItem>
             </Menu>
         </DockPanel>
 
-        <Frame Grid.Row="1" Content="{Binding CurrentViewModel}" NavigationUIVisibility="Hidden" />
+        <Frame Grid.Row="1" Content="{Binding CurrentViewModel, UpdateSourceTrigger=PropertyChanged}" NavigationUIVisibility="Hidden"/>
 
     </Grid>
 </Window>
