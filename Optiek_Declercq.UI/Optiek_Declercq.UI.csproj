@@ -70,14 +70,25 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Design\DesignDataService.cs" />
-    <Compile Include="Model\DataItem.cs" />
-    <Compile Include="Model\DataService.cs" />
-    <Compile Include="Model\IDataService.cs" />
+    <Compile Include="ViewModel\Administratie\EditInvoiceViewModel.cs" />
+    <Compile Include="ViewModel\Administratie\_InvoiceViewModel.cs" />
+    <Compile Include="ViewModel\Administratie\NewInvoiceViewModel.cs" />
+    <Compile Include="ViewModel\Help\InfoViewModel.cs" />
+    <Compile Include="ViewModel\Klantbestand\KlantbestandViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\Print\PrintPreviewViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
-    <Compile Include="Views\Menu\MainMenu.xaml.cs">
-      <DependentUpon>MainMenu.xaml</DependentUpon>
+    <Compile Include="Views\Administratie\InvoiceView.xaml.cs">
+      <DependentUpon>InvoiceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Help\InfoView.xaml.cs">
+      <DependentUpon>InfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Klantenbestand\KlantbestandView.xaml.cs">
+      <DependentUpon>KlantbestandView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Print\PrintPreviewView.xaml.cs">
+      <DependentUpon>PrintPreviewView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -91,11 +102,27 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Skins\PrintSkin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Skins\MainSkin.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Menu\MainMenu.xaml">
+    <Page Include="Views\Administratie\InvoiceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Help\InfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Klantenbestand\KlantbestandView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Print\PrintPreviewView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -129,7 +156,21 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Klantenbestand\" />
+    <Folder Include="ViewModel\Shared\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Optiek_Declercq.Model\Optiek_Declercq.Model.csproj">
+      <Project>{15dae08e-d710-459e-985d-181c4bc79178}</Project>
+      <Name>Optiek_Declercq.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Optiek_Declercq.Repository\Optiek_Declercq.Repository.csproj">
+      <Project>{4c555b81-061c-49fe-b512-08afe416033b}</Project>
+      <Name>Optiek_Declercq.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Optiek_Declercq.Services\Optiek_Declercq.Services.csproj">
+      <Project>{b0ca6201-ca47-481a-bf74-c2bc5becd55b}</Project>
+      <Name>Optiek_Declercq.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

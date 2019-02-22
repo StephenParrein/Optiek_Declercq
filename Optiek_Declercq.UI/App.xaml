@@ -5,12 +5,44 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 xmlns:ignore="http://www.galasoft.ch/ignore"
+             xmlns:vKlantbestand="clr-namespace:Optiek_Declercq.UI.Views.Klantenbestand"
+             xmlns:vmKlantbestand="clr-namespace:Optiek_Declercq.UI.ViewModel.Klantbestand"
+             xmlns:vAdministation="clr-namespace:Optiek_Declercq.UI.Views.Administratie"
+             xmlns:vmAdministation="clr-namespace:Optiek_Declercq.UI.ViewModel.Administratie"
+             xmlns:vPrint="clr-namespace:Optiek_Declercq.UI.Views.Print"
+             xmlns:vmPrint="clr-namespace:Optiek_Declercq.UI.ViewModel.Print"
              StartupUri="MainWindow.xaml"
              mc:Ignorable="d ignore">
     
     <Application.Resources>
-        <!--Global View Model Locator-->
+        <!--Global View Model Locator
+        
+        Link between the ViewModel and corresponding View
+        
+        -->
+        
+        <!--Client view model-->
         <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" />
+        
+        <!--Klantbestand view model-->
+        <DataTemplate DataType="{x:Type vmKlantbestand:KlantbestandViewModel}">
+            <vKlantbestand:KlantbestandView/>
+        </DataTemplate>
+        
+        <!--Adminstration view model-->
+        <DataTemplate DataType="{x:Type vmAdministation:NewInvoiceViewModel}">
+            <vAdministation:InvoiceView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vmAdministation:EditInvoiceViewModel}">
+            <vAdministation:InvoiceView/>
+        </DataTemplate>
+
+        <!--Print view model-->
+        <DataTemplate DataType="{x:Type vmPrint:PrintPreviewViewModel}">
+            <vPrint:PrintPreviewView/>
+        </DataTemplate>
+
+        
     </Application.Resources>
     
 </Application>
