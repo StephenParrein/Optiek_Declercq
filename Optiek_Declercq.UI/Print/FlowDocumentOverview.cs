@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Optiek_Declercq.UI.ViewModel.Administratie
+namespace Optiek_Declercq.UI.Print
 {
-    class EditInvoiceViewModel : _DocumentViewModelBase
+    class FlowDocumentOverview
     {
     }
 }

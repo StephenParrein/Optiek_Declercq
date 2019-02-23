@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Optiek_Declercq.UI.ViewModel.Administratie
+namespace Optiek_Declercq.Model.Contracts
 {
-    class EditInvoiceViewModel : _DocumentViewModelBase
+    public interface IPrintable
     {
     }
 }

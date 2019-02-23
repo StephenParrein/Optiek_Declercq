@@ -11,6 +11,8 @@
              xmlns:vmAdministation="clr-namespace:Optiek_Declercq.UI.ViewModel.Administratie"
              xmlns:vPrint="clr-namespace:Optiek_Declercq.UI.Views.Print"
              xmlns:vmPrint="clr-namespace:Optiek_Declercq.UI.ViewModel.Print"
+             xmlns:vOverview="clr-namespace:Optiek_Declercq.UI.Views.Overzicht"
+             xmlns:vmOverview="clr-namespace:Optiek_Declercq.UI.ViewModel.Overzicht"
              xmlns:vHelp="clr-namespace:Optiek_Declercq.UI.Views.Help"
              xmlns:vmHelp="clr-namespace:Optiek_Declercq.UI.ViewModel.Help"
              xmlns:vShared="clr-namespace:Optiek_Declercq.UI.Views.Shared"
@@ -37,13 +39,39 @@
         <DataTemplate DataType="{x:Type vmAdministation:NewInvoiceViewModel}">
             <vAdministation:InvoiceView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vmAdministation:NewDeliveryViewModel}">
+            <vAdministation:InvoiceView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vmAdministation:EditQuotationViewModel}">
+            <vAdministation:InvoiceView/>
+        </DataTemplate>
         <DataTemplate DataType="{x:Type vmAdministation:EditInvoiceViewModel}">
             <vAdministation:InvoiceView/>
         </DataTemplate>
-
+        <DataTemplate DataType="{x:Type vmAdministation:EditDeliveryViewModel}">
+            <vAdministation:InvoiceView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vmAdministation:EditQuotationViewModel}">
+            <vAdministation:InvoiceView/>
+        </DataTemplate>
+        
         <!--Print view model-->
         <DataTemplate DataType="{x:Type vmPrint:PrintPreviewViewModel}">
             <vPrint:PrintPreviewView/>
+        </DataTemplate>
+        
+        <!--Overview view model-->
+        <DataTemplate DataType="{x:Type vmOverview:OverviewDeliveryViewModel}">
+            <vOverview:OverviewView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vmOverview:OverviewGlobalViewModel}">
+            <vOverview:OverviewView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vmOverview:OverviewInvoiceViewModel}">
+            <vOverview:OverviewView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vmOverview:OverviewQuotationViewModel}">
+            <vOverview:OverviewView/>
         </DataTemplate>
         
         <!--Help view model-->

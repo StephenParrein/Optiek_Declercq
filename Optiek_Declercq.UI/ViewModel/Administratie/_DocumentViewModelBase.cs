@@ -8,9 +8,12 @@ using Optiek_Declercq.Model.Contracts;
 
 namespace Optiek_Declercq.UI.ViewModel.Administratie
 {
-    abstract class _InvoiceViewModel : ViewModelBase, IAdministration
+    abstract class _DocumentViewModelBase :
+        ViewModelBase, 
+        IAdministration,
+        IPrintable
     {
-        public _InvoiceViewModel()
+        public _DocumentViewModelBase()
         {
 
         }

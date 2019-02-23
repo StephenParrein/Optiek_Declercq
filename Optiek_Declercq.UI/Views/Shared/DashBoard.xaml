@@ -5,10 +5,59 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Optiek_Declercq.UI.Views.Shared"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      Width="600"
       Title="DashBoard">
 
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Skins/MainSkin.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
     <Grid>
-        <Label Content="DashBoard"></Label>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right">
+                <Label HorizontalAlignment="Right" Content="Optiek Declercq"/>
+                <Label HorizontalAlignment="Right" Content="In samenwerking met"/>
+                <Label HorizontalAlignment="Right" Content="Hogeschool Vives Kortrijk"/>
+        </StackPanel>
+        <Image Grid.Column="0" HorizontalAlignment="Left" Source="/Resources/VivesLogo.png" Height="75"/>
+        
+        <StackPanel HorizontalAlignment="Center"  Grid.Row="1" Grid.Column="0" Width="200">
+            <Label Content="Bestand" HorizontalAlignment="Center" FontSize="20"/>
+            <Button Content="Nieuwe levering bon"/>
+            <Button Content="Nieuwe factuur"/>
+            <Button Content="Nieuwe Offerte"/>
+            <Button Content="Nieuw leeg document"/>
+
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1" >
+            <Label Content="Beheer" HorizontalAlignment="Center" FontSize="20"/>
+            <Button Content="Klantenbestand"/>
+            <Separator/>
+            <Button Content="Overzicht leveringsbonnen"/>
+            <Button Content="Overzicht facturen"/>
+            <Button Content="Overzicht Offertes"/>
+            <Button Content="Algemeen overzicht"/>
+            <Separator/>
+            <Button Content="Overzicht ophalen"/>
+            <Label Content="Van"/>
+            <DatePicker></DatePicker>
+            <Label Content="Tot"/>
+            <DatePicker/>
+        </StackPanel>
+        
     </Grid>
 </Page>

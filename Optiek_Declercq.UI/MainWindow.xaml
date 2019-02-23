@@ -32,15 +32,21 @@
         
         <DockPanel Grid.Row="0">
             <Menu DockPanel.Dock="Top">
+                <MenuItem Header="Home" Command="{Binding NavDashboardCommand}"/>
                 <MenuItem Header="_Bestand">
-                    <MenuItem Header="_Nieuw" Command="{Binding NavNewInvoiceCommand}"/>
-                    <MenuItem Header="_Openen" Command="{Binding NavEditInvoiceCommand}" />
-                    <MenuItem Header="O_pslaan" Command="{Binding SaveInvoiceCommand}" />
+                    <MenuItem Header="_Nieuw">
+                        <MenuItem Header="_Levering bon" Command="{Binding NavNewInvoiceCommand}"/>
+                        <MenuItem Header="_Factuur" Command="{Binding NavNewInvoiceCommand}"/>
+                        <MenuItem Header="_Offerte" Command="{Binding NavNewInvoiceCommand}"/>
+                        <MenuItem Header="L_eeg document" Command="{Binding NavNewInvoiceCommand}"/>
+                    </MenuItem>
+                    <!--<MenuItem Header="_Openen" Command="{Binding NavEditInvoiceCommand}" />-->
+                    <MenuItem Header="O_pslaan" Command="{Binding SaveInvoiceCommand}" IsEnabled="{Binding PropertySaveButtonEnabled, UpdateSourceTrigger=PropertyChanged}" />
                     <Separator />
-                    <MenuItem Header="_Afdrukken" />
-                    <MenuItem Header="A_fdrukvoorbeeld" />
+                    <MenuItem Header="_Afdrukken" IsEnabled="{Binding PropertyPrintingEnabled, UpdateSourceTrigger=PropertyChanged}" />
+                    <MenuItem Header="A_fdrukvoorbeeld" IsEnabled="{Binding PropertyPrintPreviewEnabled, UpdateSourceTrigger=PropertyChanged}" />
                     <Separator />
-                    <MenuItem Header="_Exit" />
+                    <MenuItem Header="Af_sluiten" />
                 </MenuItem>
                 <MenuItem Header="_Beheer">
                     <MenuItem Header="_Klanten" Command="{Binding NavClientsCommand}"/>
@@ -54,7 +60,11 @@
             </Menu>
         </DockPanel>
 
-        <Frame Grid.Row="1" Content="{Binding CurrentViewModel, UpdateSourceTrigger=PropertyChanged}" NavigationUIVisibility="Hidden"/>
-
+        <Frame Grid.Row="1" 
+               HorizontalAlignment="Center" 
+               VerticalAlignment="Center" 
+               Content="{Binding CurrentViewModel, UpdateSourceTrigger=PropertyChanged}" 
+               NavigationUIVisibility="Hidden"/>
+        
     </Grid>
 </Window>

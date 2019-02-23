@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using Optiek_Declercq.Model.Contracts;
 using Optiek_Declercq.UI.ViewModel.Administratie;
 using Optiek_Declercq.UI.ViewModel.Help;
 using Optiek_Declercq.UI.ViewModel.Klantbestand;
@@ -12,9 +13,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace Optiek_Declercq.UI.ViewModel
 {
-    /// <MainVMSummary>
-    /// The MainViewModel targets navigation within the application.
-    /// </MainVMSummary>
+
     public class MainViewModel : ViewModelBase
     {
         //Properties
@@ -50,6 +49,58 @@ namespace Optiek_Declercq.UI.ViewModel
             }
         }
 
+        /// <Properties>
+        /// Global interface settings
+        /// </Properties>
+        //UI properties
+        private bool _PropertyPrintingEnabled;
+        public bool PropertyPrintingEnabled
+        {
+            get
+            {
+                return _PropertyPrintingEnabled;
+            }
+            set
+            {
+                if (_PropertyPrintingEnabled == value)
+                    return;
+                _PropertyPrintingEnabled = value;
+                RaisePropertyChanged("PropertyPrintingEnabled");
+            }
+        }
+
+        private bool _PropertyPrintPreviewEnabled;
+        public bool PropertyPrintPreviewEnabled
+        {
+            get
+            {
+                return _PropertyPrintPreviewEnabled;
+            }
+            set
+            {
+                if (_PropertyPrintPreviewEnabled == value)
+                    return;
+                _PropertyPrintPreviewEnabled = value;
+                RaisePropertyChanged("PropertyPrintPreviewEnabled");
+            }
+        }
+
+        private bool _DocumentNewSaveState; //Prompt user a message when document is not saved
+        public bool DocumentNewSaveState
+        {
+            get
+            {
+                return _DocumentNewSaveState;
+            }
+            set
+            {
+                if (_DocumentNewSaveState == value)
+                    return;
+                _DocumentNewSaveState = value;
+                RaisePropertyChanged("PropertyPrintPreviewEnabled");
+            }
+        }
+
         /// <CommandSummary>
         /// Navigation link between ViewModel and View can be found in App.xaml
         /// </CommandSummary>
@@ -66,15 +117,16 @@ namespace Optiek_Declercq.UI.ViewModel
         public ICommand NavClientsCommand { get; set; }
 
         //Beheer
-        public ICommand NavInvoiceDeliveryCommand { get; set; }
-        public ICommand NavInvoiceCommand { get; set; }
-        public ICommand NavInvoiceAllCommand { get; set; }
+        public ICommand NavDeliveryOverviewCommand { get; set; }
+        public ICommand NavInvoiceOverviewCommand { get; set; }
+        public ICommand NavQuotationOverviewCommand { get; set; }
+        public ICommand NavGlobalOverviewCommand { get; set; }
+
+        //Global
+        public ICommand NavDashboardCommand { get; set; }
 
         //Help
         public ICommand NavInfoCommand { get; set; }
-
-        //Shared
-        public ICommand NavDashboardCommand { get; set; }
 
         public MainViewModel()
         {
@@ -82,10 +134,10 @@ namespace Optiek_Declercq.UI.ViewModel
             NavEditInvoiceCommand = new RelayCommand(ExecNavEditInvoiceCommand);
             SaveInvoiceCommand = new RelayCommand(ExecSaveInvoiceCommand);
 
-            NavInvoiceDeliveryCommand = new RelayCommand(ExecNavInvoiceDeliveryCommand);
+            NavDeliveryOverviewCommand = new RelayCommand(ExecNavInvoiceDeliveryCommand);
             NavClientsCommand = new RelayCommand(ExecNavClientsCommand);
-            NavInvoiceCommand = new RelayCommand(ExecNavInvoiceCommand);
-            NavInvoiceAllCommand = new RelayCommand(ExecNavInvoiceAllCommand);
+            NavInvoiceOverviewCommand = new RelayCommand(ExecNavInvoiceCommand);
+            NavGlobalOverviewCommand = new RelayCommand(ExecNavInvoiceAllCommand);
             NavInfoCommand = new RelayCommand(ExecNavInfoCommand);
 
             NavPrintCommand = new RelayCommand(ExecNavPrintCommand);
@@ -155,7 +207,20 @@ namespace Optiek_Declercq.UI.ViewModel
 
         private void NavigateToPage(ViewModelBase viewModel)
         {
-            try { 
+            try {
+                Type type = viewModel.GetType();
+
+                if(type.BaseType.Name.Equals("_DocumentViewModelBase"))
+                {
+                    PropertyPrintingEnabled = true;
+                    PropertyPrintPreviewEnabled = true;
+                }
+                else
+                {
+                    PropertyPrintingEnabled = false;
+                    PropertyPrintPreviewEnabled = false;
+                }
+
                 LastViewModelState = CurrentViewModel;
                 CurrentViewModel = viewModel;
             }catch(Exception e)

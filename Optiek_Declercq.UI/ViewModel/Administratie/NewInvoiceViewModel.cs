@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Optiek_Declercq.UI.ViewModel.Administratie
 {
-    class NewInvoiceViewModel : _InvoiceViewModel
+    class NewInvoiceViewModel : _DocumentViewModelBase
     {
     }
 }

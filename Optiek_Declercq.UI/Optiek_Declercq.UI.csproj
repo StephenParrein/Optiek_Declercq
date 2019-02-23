@@ -39,6 +39,12 @@
     <ApplicationIcon>VivesLogoIcon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="GalaSoft.MvvmLight, Version=5.3.0.19026, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.3.0.0\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
     </Reference>
@@ -52,6 +58,7 @@
       <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.3.0.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
@@ -73,13 +80,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Print\FlowDocumentDoc.cs" />
+    <Compile Include="Print\FlowDocumentOverview.cs" />
+    <Compile Include="Print\_FlowDocumentBase.cs" />
+    <Compile Include="ViewModel\Administratie\EditDeliveryViewModel.cs" />
     <Compile Include="ViewModel\Administratie\EditInvoiceViewModel.cs" />
-    <Compile Include="ViewModel\Administratie\QuotationInvoiceViewModel.cs" />
-    <Compile Include="ViewModel\Administratie\_InvoiceViewModel.cs" />
+    <Compile Include="ViewModel\Administratie\EditQuotationViewModel.cs" />
+    <Compile Include="ViewModel\Administratie\NewDeliveryViewModel.cs" />
+    <Compile Include="ViewModel\Administratie\NewQuotationViewModel.cs" />
+    <Compile Include="ViewModel\Administratie\_DocumentViewModelBase.cs" />
     <Compile Include="ViewModel\Administratie\NewInvoiceViewModel.cs" />
     <Compile Include="ViewModel\Help\InfoViewModel.cs" />
     <Compile Include="ViewModel\Klantbestand\KlantbestandViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\Overzicht\OverviewDeliveryViewModel.cs" />
+    <Compile Include="ViewModel\Overzicht\OverviewGlobalViewModel.cs" />
+    <Compile Include="ViewModel\Overzicht\OverviewInvoiceViewModel.cs" />
+    <Compile Include="ViewModel\Overzicht\OverviewQuotationViewModel.cs" />
+    <Compile Include="ViewModel\Overzicht\_OverviewViewModelBase.cs" />
     <Compile Include="ViewModel\Print\PrintPreviewViewModel.cs" />
     <Compile Include="ViewModel\Print\PrintViewModel.cs" />
     <Compile Include="ViewModel\Shared\DashBoardViewModel.cs" />
@@ -92,6 +110,9 @@
     </Compile>
     <Compile Include="Views\Klantenbestand\KlantbestandView.xaml.cs">
       <DependentUpon>KlantbestandView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Overzicht\OverviewView.xaml.cs">
+      <DependentUpon>OverviewView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Print\PrintPreviewView.xaml.cs">
       <DependentUpon>PrintPreviewView.xaml</DependentUpon>
@@ -111,6 +132,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Skins\PrintLayoutSkin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Skins\PrintSkin.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -128,6 +153,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Klantenbestand\KlantbestandView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Overzicht\OverviewView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -168,7 +197,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\VivesLogoIcon.ico" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Optiek_Declercq.Model\Optiek_Declercq.Model.csproj">
       <Project>{15dae08e-d710-459e-985d-181c4bc79178}</Project>
@@ -186,6 +217,10 @@
   <ItemGroup>
     <Resource Include="VivesLogoIcon.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\VivesLogo.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
