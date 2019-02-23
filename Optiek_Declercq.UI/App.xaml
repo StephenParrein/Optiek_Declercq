@@ -51,10 +51,7 @@
         <DataTemplate DataType="{x:Type vmAdministation:EditDeliveryViewModel}">
             <vAdministation:InvoiceView/>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type vmAdministation:EditQuotationViewModel}">
-            <vAdministation:InvoiceView/>
-        </DataTemplate>
-        
+
         <!--Print view model-->
         <DataTemplate DataType="{x:Type vmPrint:PrintPreviewViewModel}">
             <vPrint:PrintPreviewView/>
