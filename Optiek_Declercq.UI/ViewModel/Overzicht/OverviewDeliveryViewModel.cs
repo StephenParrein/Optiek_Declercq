@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Optiek_Declercq.UI.ViewModel.Overzicht
 {
-    class OverviewDeliveryViewModel
+    class OverviewDeliveryViewModel : _OverviewViewModelBase
     {
     }
 }

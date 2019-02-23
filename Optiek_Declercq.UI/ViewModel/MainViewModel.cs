@@ -4,6 +4,7 @@ using Optiek_Declercq.Model.Contracts;
 using Optiek_Declercq.UI.ViewModel.Administratie;
 using Optiek_Declercq.UI.ViewModel.Help;
 using Optiek_Declercq.UI.ViewModel.Klantbestand;
+using Optiek_Declercq.UI.ViewModel.Overzicht;
 using Optiek_Declercq.UI.ViewModel.Print;
 using Optiek_Declercq.UI.ViewModel.Shared;
 using System;
@@ -107,7 +108,16 @@ namespace Optiek_Declercq.UI.ViewModel
         //Administratie
         public ICommand NavNewInvoiceCommand { get; set; }
         public ICommand NavEditInvoiceCommand { get; set; }
-        public ICommand SaveInvoiceCommand { get; set; }
+
+        public ICommand NavNewDeliveryCommand { get; set; }
+        public ICommand NavEditDeliveryCommand { get; set; }
+
+        public ICommand NavNewQuotationCommand { get; set; }
+        public ICommand NavEditQuotationCommand { get; set; }
+
+        public ICommand NavNewGlobalCommand { get; set; }
+
+        public ICommand SaveCommand { get; set; }
 
         //Print
         public ICommand NavPrintCommand { get; set; }
@@ -132,79 +142,98 @@ namespace Optiek_Declercq.UI.ViewModel
         {
             NavNewInvoiceCommand = new RelayCommand(ExecNavNewInvoiceCommand);
             NavEditInvoiceCommand = new RelayCommand(ExecNavEditInvoiceCommand);
-            SaveInvoiceCommand = new RelayCommand(ExecSaveInvoiceCommand);
-
+            NavNewGlobalCommand = new RelayCommand(ExecNavNewGlobalCommand);
+            NavNewDeliveryCommand = new RelayCommand(ExecNavNewDeliveryCommand);
+            NavEditDeliveryCommand = new RelayCommand(ExecNavEditDeliveryCommand);
+            NavNewQuotationCommand = new RelayCommand(ExecNavEditDeliveryCommand);
+            NavEditQuotationCommand = new RelayCommand(ExecNavEditQuotationCommand);
+            SaveCommand = new RelayCommand(ExecSaveInvoiceCommand);
             NavDeliveryOverviewCommand = new RelayCommand(ExecNavInvoiceDeliveryCommand);
             NavClientsCommand = new RelayCommand(ExecNavClientsCommand);
-            NavInvoiceOverviewCommand = new RelayCommand(ExecNavInvoiceCommand);
-            NavGlobalOverviewCommand = new RelayCommand(ExecNavInvoiceAllCommand);
+            NavDeliveryOverviewCommand = new RelayCommand(ExecNavDeliveryOverviewCommand);
+            NavInvoiceOverviewCommand = new RelayCommand(ExecNavInvoiceOverviewCommand);
+            NavQuotationOverviewCommand = new RelayCommand(ExecNavQuotationOverviewCommand);
+            NavGlobalOverviewCommand = new RelayCommand(ExecNavGlobalOverviewCommand);
             NavInfoCommand = new RelayCommand(ExecNavInfoCommand);
-
             NavPrintCommand = new RelayCommand(ExecNavPrintCommand);
             NavPrintPreviewCommand = new RelayCommand(ExecNavPrintPreviewCommand);
-
             NavDashboardCommand = new RelayCommand(ExecNavDashboardCommand);
-
             ExecNavDashboardCommand();
-
         }
 
         private void ExecNavNewInvoiceCommand()
         {
             NavigateToPage(new NewInvoiceViewModel());
         }
-
         private void ExecNavEditInvoiceCommand()
         {
             NavigateToPage(new EditInvoiceViewModel());
         }
-
+        private void ExecNavNewDeliveryCommand()
+        {
+            NavigateToPage(new NewDeliveryViewModel());
+        }
+        private void ExecNavEditDeliveryCommand()
+        {
+            NavigateToPage(new EditDeliveryViewModel());
+        }
+        private void ExecNavNewQuotationCommand()
+        {
+            NavigateToPage(new NewQuotationViewModel());
+        }
+        private void ExecNavEditQuotationCommand()
+        {
+            NavigateToPage(new EditQuotationViewModel());
+        }
+        private void ExecNavNewGlobalCommand()
+        {
+            NavigateToPage(new NewInvoiceViewModel());
+        }
         private void ExecSaveInvoiceCommand()
         {
             //TODO model binding command active when editing invoice
             //TODO save model state while editing if changes have been made
         }
-
         private void ExecNavClientsCommand()
         {
             NavigateToPage(new KlantbestandViewModel());
         }
-
         private void ExecNavInvoiceDeliveryCommand()
         {
             //CurrentViewModel = new NewInvoiceViewModel();
         }
-
-        private void ExecNavInvoiceCommand()
+        private void ExecNavInvoiceOverviewCommand()
         {
-            //CurrentViewModel = new NewInvoiceViewModel();
+            CurrentViewModel = new OverviewInvoiceViewModel();
         }
-
-        private void ExecNavInvoiceAllCommand()
+        private void ExecNavGlobalOverviewCommand()
         {
-            //CurrentViewModel = new NewInvoiceViewModel();
+            CurrentViewModel = new OverviewGlobalViewModel();
         }
-
+        private void ExecNavQuotationOverviewCommand()
+        {
+            CurrentViewModel = new OverviewQuotationViewModel();
+        }
+        private void ExecNavDeliveryOverviewCommand()
+        {
+            CurrentViewModel = new OverviewDeliveryViewModel();
+        }
         private void ExecNavInfoCommand()
         {
             NavigateToPage(new InfoViewModel());
         }
-
         private void ExecNavPrintCommand()
         {
             NavigateToPage(new PrintViewModel());
         }
-
         private void ExecNavPrintPreviewCommand()
         {
             NavigateToPage(new PrintPreviewViewModel());
         }
-
         private void ExecNavDashboardCommand()
         {
             NavigateToPage(new DashBoardViewModel());
         }
-
         private void NavigateToPage(ViewModelBase viewModel)
         {
             try {

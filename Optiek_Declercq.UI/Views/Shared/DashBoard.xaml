@@ -37,20 +37,20 @@
         
         <StackPanel HorizontalAlignment="Center"  Grid.Row="1" Grid.Column="0" Width="200">
             <Label Content="Bestand" HorizontalAlignment="Center" FontSize="20"/>
-            <Button Content="Nieuwe levering bon"/>
-            <Button Content="Nieuwe factuur"/>
-            <Button Content="Nieuwe Offerte"/>
-            <Button Content="Nieuw leeg document"/>
+            <Button Content="Nieuwe levering bon" Command="{Binding Main.NavNewDeliveryCommand, Source={StaticResource Locator}}"/>
+            <Button Content="Nieuwe factuur" Command="{Binding Main.NavNewInvoiceCommand, Source={StaticResource Locator}}"/>
+            <Button Content="Nieuwe Offerte" Command="{Binding Main.NavNewQuotationCommand, Source={StaticResource Locator}}"/>
+            <Button Content="Nieuw leeg document" Command="{Binding Main.NavNewGlobalCommand, Source={StaticResource Locator}}"/>
 
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1" >
             <Label Content="Beheer" HorizontalAlignment="Center" FontSize="20"/>
-            <Button Content="Klantenbestand"/>
+            <Button Content="Klantenbestand" Command="{Binding Main.NavClientsCommand, Source={StaticResource Locator}}"/>
             <Separator/>
-            <Button Content="Overzicht leveringsbonnen"/>
-            <Button Content="Overzicht facturen"/>
-            <Button Content="Overzicht Offertes"/>
-            <Button Content="Algemeen overzicht"/>
+            <Button Content="Overzicht leveringsbonnen" Command="{Binding Main.NavDeliveryOverviewCommand, Source={StaticResource Locator}}"/>
+            <Button Content="Overzicht facturen" Command="{Binding Main.NavInvoiceOverviewCommand, Source={StaticResource Locator}}"/>
+            <Button Content="Overzicht Offertes" Command="{Binding Main.NavQuotationOverviewCommand, Source={StaticResource Locator}}"/>
+            <Button Content="Algemeen overzicht" Command="{Binding Main.NavGlobalOverviewCommand, Source={StaticResource Locator}}"/>
             <Separator/>
             <Button Content="Overzicht ophalen"/>
             <Label Content="Van"/>

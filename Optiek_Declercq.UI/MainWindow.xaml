@@ -35,10 +35,10 @@
                 <MenuItem Header="Home" Command="{Binding NavDashboardCommand}"/>
                 <MenuItem Header="_Bestand">
                     <MenuItem Header="_Nieuw">
-                        <MenuItem Header="_Levering bon" Command="{Binding NavNewInvoiceCommand}"/>
+                        <MenuItem Header="_Levering bon" Command="{Binding NavNewDeliveryCommand}"/>
                         <MenuItem Header="_Factuur" Command="{Binding NavNewInvoiceCommand}"/>
-                        <MenuItem Header="_Offerte" Command="{Binding NavNewInvoiceCommand}"/>
-                        <MenuItem Header="L_eeg document" Command="{Binding NavNewInvoiceCommand}"/>
+                        <MenuItem Header="_Offerte" Command="{Binding NavNewQuotationCommand}"/>
+                        <MenuItem Header="L_eeg document" Command="{Binding NavNewGlobalCommand}"/>
                     </MenuItem>
                     <!--<MenuItem Header="_Openen" Command="{Binding NavEditInvoiceCommand}" />-->
                     <MenuItem Header="O_pslaan" Command="{Binding SaveInvoiceCommand}" IsEnabled="{Binding PropertySaveButtonEnabled, UpdateSourceTrigger=PropertyChanged}" />
@@ -51,10 +51,10 @@
                 <MenuItem Header="_Beheer">
                     <MenuItem Header="_Klanten" Command="{Binding NavClientsCommand}"/>
                     <Separator />
-                    <MenuItem Header="_Facturen" Command="{Binding NavInvoiceCommand}"/>
-                    <MenuItem Header="_Leveringsbonnen" Command="{Binding NavInvoiceDeliveryCommand}"/>
-                    <MenuItem Header="_Offertes" Command="{}"/>
-                    <MenuItem Header="_Alles" Command="{Binding NavInvoiceAllCommand}"/>
+                    <MenuItem Header="_Facturen" Command="{Binding NavInvoiceOverviewCommand}"/>
+                    <MenuItem Header="_Leveringsbonnen" Command="{Binding NavDeliveryOverviewCommand}"/>
+                    <MenuItem Header="_Offertes" Command="{Binding NavQuotationOverviewCommand}"/>
+                    <MenuItem Header="_Alles" Command="{Binding NavGlobalOverviewCommand}"/>
                 </MenuItem>
                 <MenuItem Header="_Info" Command="{Binding NavInfoCommand}"></MenuItem>
             </Menu>
