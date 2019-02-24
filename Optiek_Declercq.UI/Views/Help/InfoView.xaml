@@ -16,7 +16,17 @@
         </ResourceDictionary>
     </Page.Resources>
 
-    <Grid>
-        <Label Content="InfoView"></Label>
+    <Grid Background="White">
+        <Image Source="/Resources/VIVES-LOGO-ROOD.jpg"/>
+        <StackPanel VerticalAlignment="top">
+        <Label Content="Hogeschool Vives - Kortrijk in samenwerking met optiek Declercq Izegem" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center"></Label>
+        <Label Content="Ontwikkeld door" HorizontalAlignment="Center" FontWeight="Bold"></Label>
+        <Label Content="Desplenter Tom" HorizontalAlignment="Center"></Label>
+        <Label Content="Knockaert Joris" HorizontalAlignment="Center"></Label>
+        <Label Content="Parrein Stephen" HorizontalAlignment="Center"></Label>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Bottom">
+            <Label Content="Versie 1.0 alpha"/>
+        </StackPanel>
     </Grid>
 </Page>

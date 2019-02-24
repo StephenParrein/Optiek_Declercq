@@ -62,7 +62,6 @@
 
         <Frame Grid.Row="1" 
                HorizontalAlignment="Center" 
-               VerticalAlignment="Center" 
                Content="{Binding CurrentViewModel, UpdateSourceTrigger=PropertyChanged}" 
                NavigationUIVisibility="Hidden"/>
         

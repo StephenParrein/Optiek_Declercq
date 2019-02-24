@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Optiek_Declercq.UI.Views.Shared"
       mc:Ignorable="d" 
-      Width="600"
+      Width="400"
       Title="DashBoard">
 
     <Page.Resources>
@@ -20,15 +20,13 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="auto"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right">
+        <StackPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right">
                 <Label HorizontalAlignment="Right" Content="Optiek Declercq"/>
                 <Label HorizontalAlignment="Right" Content="In samenwerking met"/>
                 <Label HorizontalAlignment="Right" Content="Hogeschool Vives Kortrijk"/>

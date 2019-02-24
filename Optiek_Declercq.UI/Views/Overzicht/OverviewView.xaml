@@ -5,8 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Optiek_Declercq.UI.Views.Overzicht"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="OverviewView">
+      Title="OverviewView"
+      >
 
     <Page.Resources>
         <ResourceDictionary>
@@ -17,6 +17,38 @@
     </Page.Resources>
 
     <Grid>
-        <Label Content="OverviewView"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+
+        <DockPanel Grid.Row="0" LastChildFill="False" Width="Auto">
+            <Button Content="{Binding PropertyNewDocumentDescription}"/>
+            <Button Content="Bewerken" Command="{Binding EditSelectedItem}"/>
+            <Button Content="Verwijderen" Command="{Binding PromptDeleteSelectedItem}"/>
+            <RichTextBox Width="200" DockPanel.Dock="Right" Margin="5 5 5 5"/>
+            <Label Content="Zoeken" DockPanel.Dock="Right"/>
+        </DockPanel>
+
+        <DataGrid Grid.Row="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Datum" Width="75" Binding="{Binding DocumentDate}"/>
+                <DataGridTextColumn Header="Factuur nummer" Width="100" Binding="{Binding DocumentNumber}"/>
+                <DataGridTextColumn Header="Soort" Width="100" Binding="{Binding DocumentType}"/>
+                <DataGridTextColumn Header="Klant" Width="100" Binding="{Binding DocumentCustomer}"/>
+                <DataGridTextColumn Header="Omschrijving" Width="*" Binding="{Binding DocumentDescription}"/>
+                <DataGridTextColumn Header="Totaal excl. BTW" Width="*" Binding="{Binding DocumentDescription}"/>
+                <DataGridTextColumn Header="Totaal incl. BTW" Width="*" Binding="{Binding DocumentDescription}"/>
+                <DataGridTextColumn Header="Verzonden" Binding="{Binding DocumentSendState}" Width="200"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <DockPanel Grid.Row="2">
+            <Label Content="x records geladen van periode dd/mm/jjjj tot dd/mm/jjjj" HorizontalAlignment="Left"/>
+            <Label Content="ErrorLabel" FontWeight="Bold" Foreground="Red" HorizontalAlignment="Right"/>
+        </DockPanel>
+
     </Grid>
 </Page>

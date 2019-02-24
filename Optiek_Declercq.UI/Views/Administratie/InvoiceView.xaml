@@ -1,13 +1,13 @@
-﻿<Page x:Class="Optiek_Declercq.UI.Views.Administratie.InvoiceView"
+﻿<Page
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Optiek_Declercq.UI.Views.Administratie"
+      xmlns:MvvmLight="clr-namespace:GalaSoft.MvvmLight;assembly=GalaSoft.MvvmLight" x:Class="Optiek_Declercq.UI.Views.Administratie.InvoiceView"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
       Title="InvoiceView">
-    
+
     <Page.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -15,8 +15,112 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Page.Resources>
-    
+
     <Grid>
-        <Label Content="InvoiceView"></Label>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <DockPanel>
+            <Label Grid.Row="0" Content="Document bewerken" FontSize="20" HorizontalAlignment="Center" FontWeight="Bold"/>
+        </DockPanel>
+
+        <DockPanel Grid.Row="1" LastChildFill="False">
+            <Button Content="Afdrukken"/>
+            <Button Content="Afdrukvoorbeeld"/>
+            <Button Content="Versturen per mail"/>
+            <Button Content="Opslaan"/>
+            <Button Content="Annuleren"/>
+            <Label Content="Fout: Kan geen verbinding maken met de database, probeer de applicatie opnieuw op te starten." FontWeight="Bold" Foreground="Red" DockPanel.Dock="Right" FontSize="14"/>
+        </DockPanel>
+        <DockPanel Grid.Row="2" LastChildFill="False">
+            <Label Content="Klant"/>
+            <ComboBox DataContext="{Binding CustomersList, UpdateSourceTrigger=PropertyChanged}" Width="200">
+                <ComboBoxItem Content="Mieke Viaene"/>
+                <ComboBoxItem Content="Aaron Parrein"/>
+                <ComboBoxItem Content="Stephen Parrein"/>
+            </ComboBox>
+
+            <Label Content="Soort"/>
+            <ComboBox DataContext="{Binding DocumentType, UpdateSourceTrigger=PropertyChanged}" Width="200">
+                <ComboBoxItem Content="Levering bon"/>
+                <ComboBoxItem Content="Factuur"/>
+                <ComboBoxItem Content="Offerte"/>
+            </ComboBox>
+
+            <Label Content="Omschrijving"/>
+            <TextBox Width="200"/>
+
+            <DatePicker DockPanel.Dock="Right"/>
+            <Label Content="Datum" DockPanel.Dock="Right"/>
+        </DockPanel>
+
+        <DataGrid Grid.Row="3" CanUserAddRows="True" SelectionUnit="Cell">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Omschrijving" Width="*" Binding="{Binding OrderDescription}"/>
+                <DataGridTextColumn Header="Aantal" Width="100" Binding="{Binding DocumentType}"/>
+                <DataGridTextColumn Header="Stukprijs incl. BTW" Width="100" Binding="{Binding DocumentType}"/>
+                <DataGridTextColumn Header="Prijs excl. BTW" Width="100" Binding="{Binding OrderPriceExVAT}"/>
+                <DataGridTextColumn Header="BTW %" Width="100" Binding="{Binding OrderVAT}"/>
+                <DataGridTextColumn Header="Prijs Incl. BTW" Width="100" Binding="{Binding DocumentPriceInVAT}"/>
+                <DataGridTextColumn Header="Korting %" Width="100" Binding="{Binding DocumentDescription}"/>
+                <DataGridTextColumn Header="Subtotaal" Width="100" Binding="{Binding DocumentPriceSubTotal}"/>
+                <DataGridTemplateColumn Header="Bewerken">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Bewerken"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Verwijderen">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Verwijderen"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+            <DataGrid.DataContext>
+                <MvvmLight:ObservableObject/>
+            </DataGrid.DataContext>
+        </DataGrid>
+        <Grid Grid.Row="4">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Grid.Row="0">
+                <Label Content="Opmerkingen"/>
+                <TextBox HorizontalAlignment="Stretch" Height="50" Grid.Row="1" FontSize="14"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Label Content="Totaal excl. BTW" Foreground="White" FontSize="14"/>
+                    <Label Content="€ - 0,00" Foreground="White" FontSize="14"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Label Content="Totaal BTW" Foreground="White" FontSize="14"/>
+                    <Label Content="€ - 0,00" Foreground="White" FontSize="14"/>
+                </StackPanel>
+                <Separator/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Label Content="Totaal incl. BTW" Foreground="White" FontSize="14" FontWeight="Bold"/>
+                    <Label Content="€ - 0,00" Foreground="White" FontSize="14" FontWeight="Bold"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        <DockPanel Grid.Row="5">
+            <Label Content="Nieuwe x geladen - Document niet bewaard" HorizontalAlignment="Left"/>
+        </DockPanel>
+
     </Grid>
 </Page>

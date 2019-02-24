@@ -17,6 +17,40 @@
     </Page.Resources>
 
     <Grid>
-        <Label Content="KlantBestandView"></Label>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+
+        <DockPanel Grid.Row="0" LastChildFill="False" Width="Auto">
+            <Button Content="Nieuwe klant"/>
+            <Button Content="Klant bewerken" Command="{Binding EditSelectedItem}"/>
+            <Button Content="Klant verwijderen" Command="{Binding PromptDeleteSelectedItem}"/>
+            <RichTextBox Width="200" DockPanel.Dock="Right" Margin="5 5 5 5"/>
+            <Label Content="Zoeken" DockPanel.Dock="Right"/>
+        </DockPanel>
+
+        <DataGrid Grid.Row="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Klant #" Width="75" Binding="{Binding DocumentDate}"/>
+                <DataGridTextColumn Header="Naam" Width="100" Binding="{Binding DocumentNumber}"/>
+                <DataGridTextColumn Header="Voornaam" Width="100" Binding="{Binding DocumentType}"/>
+                <DataGridTextColumn Header="Adresregel" Width="*" Binding="{Binding DocumentCustomer}"/>
+                <DataGridTextColumn Header="Postcode" Width="*" Binding="{Binding DocumentDescription}"/>
+                <DataGridTextColumn Header="Stad/Gemeente" Width="*" Binding="{Binding DocumentDescription}"/>
+                <DataGridTextColumn Header="E-mail adres" Width="*" Binding="{Binding DocumentDescription}"/>
+                <DataGridTextColumn Header="Telefoonnummer" Binding="{Binding DocumentSendState}" Width="200"/>
+                <DataGridTextColumn Header="Bedrijfsnaam"/>
+                <DataGridTextColumn Header="BTW nummer"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <DockPanel Grid.Row="2">
+            <Label Content="x klanten geladen" HorizontalAlignment="Left"/>
+            <Label Content="ErrorLabel" FontWeight="Bold" Foreground="Red" HorizontalAlignment="Right"/>
+        </DockPanel>
+
     </Grid>
 </Page>
