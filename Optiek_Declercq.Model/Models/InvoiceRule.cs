@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Optiek_Declercq.Model.Contracts;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -8,17 +9,13 @@ using System.Threading.Tasks;
 
 namespace Optiek_Declercq.Model.Models
 {
-    public class CustomerModel
+    public class InvoiceRule
     {
         [Key]
         public int ID { get; set; }
 
-        public string EmailAdress { get; set; }
-        public string HashedPassword { get; set; }
-
-        [ForeignKey("Address")]
-        public int AddressID { get; set; }
-        public virtual AddressModel Address { get; set; }
-
+        [ForeignKey("Invoice")]
+        public int InvoiceId { get; set; }
+        public virtual Invoice GetInvoice { get; set; }
     }
 }

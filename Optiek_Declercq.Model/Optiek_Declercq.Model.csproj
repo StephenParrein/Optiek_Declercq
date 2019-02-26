@@ -58,8 +58,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\IPrintable.cs" />
-    <Compile Include="Models\AddressModel.cs" />
-    <Compile Include="Models\CustomerModel.cs" />
+    <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\Company.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\ErrorLog.cs" />
+    <Compile Include="Models\Invoice.cs" />
+    <Compile Include="Models\InvoiceRule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

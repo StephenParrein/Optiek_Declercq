@@ -24,6 +24,7 @@
             <RowDefinition Height="5*"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <DockPanel>
@@ -89,7 +90,14 @@
                 <MvvmLight:ObservableObject/>
             </DataGrid.DataContext>
         </DataGrid>
+
         <Grid Grid.Row="4">
+            <DockPanel Visibility="{Binding EditPartialVisible, UpdateSourceTrigger=PropertyChanged}">
+                <Label Content="HideTest" Visibility="{Binding EditPartialVisible, UpdateSourceTrigger=PropertyChanged}"/>
+            </DockPanel>
+        </Grid>
+        
+        <Grid Grid.Row="5">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -118,7 +126,7 @@
                 </StackPanel>
             </StackPanel>
         </Grid>
-        <DockPanel Grid.Row="5">
+        <DockPanel Grid.Row="6">
             <Label Content="Nieuwe x geladen - Document niet bewaard" HorizontalAlignment="Left"/>
         </DockPanel>
 

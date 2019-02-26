@@ -8,5 +8,9 @@ namespace Optiek_Declercq.UI.ViewModel.Administratie
 {
     class NewInvoiceViewModel : _DocumentViewModelBase
     {
+        public NewInvoiceViewModel() : base()
+        {
+            
+        }
     }
 }
