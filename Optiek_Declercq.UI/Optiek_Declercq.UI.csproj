@@ -80,9 +80,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Print\FlowDocumentDoc.cs" />
-    <Compile Include="Print\FlowDocumentOverview.cs" />
-    <Compile Include="Print\_FlowDocumentBase.cs" />
+    <Compile Include="Print\InvoiceTemplate.xaml.cs">
+      <DependentUpon>InvoiceTemplate.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\Administratie\EditDeliveryViewModel.cs" />
     <Compile Include="ViewModel\Administratie\EditInvoiceViewModel.cs" />
     <Compile Include="ViewModel\Administratie\EditQuotationViewModel.cs" />
@@ -132,9 +132,13 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Skins\PrintLayoutSkin.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="Print\FlowDocumentInvoice.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Print\InvoiceTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Skins\PrintSkin.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -222,6 +226,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\VIVES-LOGO-ROOD.jpg" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\OptiekLogo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

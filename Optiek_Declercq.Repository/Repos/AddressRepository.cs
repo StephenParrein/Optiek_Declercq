@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Optiek_Declercq.Repository.Repos
 {
-    class AddressRepository : Repository<Address>, IAddressRepository
+    public class AddressRepository : Repository<Address>, IAddressRepository
     {
         public AddressRepository(DbContext context) : base(context)
         {

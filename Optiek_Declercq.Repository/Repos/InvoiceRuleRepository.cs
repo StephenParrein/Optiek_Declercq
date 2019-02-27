@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Optiek_Declercq.Repository.Repos
 {
-    class InvoiceRuleRepository : Repository<InvoiceRule>, IInvoiceRuleRepository
+    public class InvoiceRuleRepository : Repository<InvoiceRule>, IInvoiceRuleRepository
     {
         public InvoiceRuleRepository(DbContext context) : base(context)
         {

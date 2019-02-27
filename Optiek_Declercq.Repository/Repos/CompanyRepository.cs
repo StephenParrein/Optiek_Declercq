@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Optiek_Declercq.Repository.Repos
 {
-    class CompanyRepository : Repository<Company>, ICompanyRepository
+    public class CompanyRepository : Repository<Company>, ICompanyRepository
     {
         public CompanyRepository(DbContext context) : base(context)
         {

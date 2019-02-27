@@ -71,8 +71,10 @@
     <Compile Include="EF\OptiekDbContext.cs" />
     <Compile Include="EF\Repository.cs" />
     <Compile Include="EF\UnitOfWork.cs" />
+    <Compile Include="Includes\CustomerIncludes.cs" />
     <Compile Include="Includes\InvoiceIncludes.cs" />
     <Compile Include="Includes\InvoiceRuleIncludes.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -103,7 +105,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Optiek_Declercq.Model\Optiek_Declercq.Model.csproj">

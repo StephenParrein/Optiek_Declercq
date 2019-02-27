@@ -43,8 +43,8 @@
                     <!--<MenuItem Header="_Openen" Command="{Binding NavEditInvoiceCommand}" />-->
                     <MenuItem Header="O_pslaan" Command="{Binding SaveInvoiceCommand}" IsEnabled="{Binding PropertySaveButtonEnabled, UpdateSourceTrigger=PropertyChanged}" />
                     <Separator />
-                    <MenuItem Header="_Afdrukken" IsEnabled="{Binding PropertyPrintingEnabled, UpdateSourceTrigger=PropertyChanged}" />
-                    <MenuItem Header="A_fdrukvoorbeeld" IsEnabled="{Binding PropertyPrintPreviewEnabled, UpdateSourceTrigger=PropertyChanged}" />
+                    <MenuItem Header="_Afdrukken" Command="{Binding NavPrintCommand}" IsEnabled="{Binding PropertyPrintingEnabled, UpdateSourceTrigger=PropertyChanged}" />
+                    <MenuItem Header="A_fdrukvoorbeeld" Command="{Binding NavPrintPreviewCommand}" IsEnabled="{Binding PropertyPrintPreviewEnabled, UpdateSourceTrigger=PropertyChanged}" />
                     <Separator />
                     <MenuItem Header="Af_sluiten" />
                 </MenuItem>

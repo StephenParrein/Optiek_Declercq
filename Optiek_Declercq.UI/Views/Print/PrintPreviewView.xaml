@@ -5,7 +5,9 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Optiek_Declercq.UI.Views.Print"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="842" d:DesignWidth="595"
+      MinHeight="842" MinWidth="595" 
+      MaxHeight="842" MaxWidth="595"   
       Title="PrintPreviewView">
 
     <Page.Resources>
@@ -17,6 +19,72 @@
     </Page.Resources>
 
     <Grid>
-        <Label Content="PrintPreviewView"></Label>
+        <FlowDocumentScrollViewer>
+            <FlowDocument>
+                <Paragraph>
+                    <InlineUIContainer>
+                        <Grid x:Name="HeaderCustomerDetail" VerticalAlignment="Stretch">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="/Resources/OptiekLogo.png"
+                                   Grid.Column="0"
+                                   Grid.Row="0"/>
+                            <DockPanel Grid.Column="1" LastChildFill="True">
+                                <StackPanel>
+                                    <Label Content="Optiek Declercq" FontSize="22" FontWeight="Bold" HorizontalAlignment="Right"/>
+                                    <Label Content="(Zonne)brillen, lenzen en hoorapparaten" FontSize="12"/>
+                                    <Label Content="Leveringsbon" HorizontalAlignment="Right"/>
+                                    <Label Content=""></Label>
+                                    <Label Content="Dhr. Parrein Stephen" FontSize="12"/>
+                                    <Label Content="Boomstraat 1" FontSize="12"/>
+                                    <Label Content="8890 Moorslede" FontSize="12"/>
+                                </StackPanel>
+                            </DockPanel>
+                        
+                        </Grid>
+                    </InlineUIContainer>
+                </Paragraph>
+                <Paragraph>
+                    <InlineUIContainer>
+                        <Grid x:Name="InvoiceDetail">
+
+                        </Grid>
+                    </InlineUIContainer>
+                </Paragraph>
+                <Paragraph>
+                    <InlineUIContainer>
+                        <Grid x:Name="InvoiceRules">
+
+                        </Grid>
+                    </InlineUIContainer>
+                </Paragraph>
+                <Paragraph>
+                    <InlineUIContainer>
+                        <Grid x:Name="FooterPaymentDetail">
+
+                        </Grid>
+                    </InlineUIContainer>
+                </Paragraph>
+            </FlowDocument>
+        </FlowDocumentScrollViewer>
     </Grid>
 </Page>

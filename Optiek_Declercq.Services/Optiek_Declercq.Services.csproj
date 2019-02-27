@@ -60,6 +60,9 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IUnitOfWorkFactory.cs" />
+    <Compile Include="CustomerService.cs" />
+    <Compile Include="Factories\UnitOfWorkFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -87,6 +90,16 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Optiek_Declercq.Model\Optiek_Declercq.Model.csproj">
+      <Project>{15DAE08E-D710-459E-985D-181C4BC79178}</Project>
+      <Name>Optiek_Declercq.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Optiek_Declercq.Repository\Optiek_Declercq.Repository.csproj">
+      <Project>{4C555B81-061C-49FE-B512-08AFE416033B}</Project>
+      <Name>Optiek_Declercq.Repository</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

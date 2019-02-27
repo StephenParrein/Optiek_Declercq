@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Optiek_Declercq.Repository.Repos
 {
-    class ErrorLogRepository : Repository<ErrorLog>, IErrorLogRepository
+    public class ErrorLogRepository : Repository<ErrorLog>, IErrorLogRepository
     {
         public ErrorLogRepository(DbContext context) : base(context)
         {

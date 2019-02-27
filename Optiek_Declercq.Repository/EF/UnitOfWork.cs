@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Optiek_Declercq.Repository.EF
 {
-    class UnitOfWork : IUnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         private readonly OptiekDbContext _context;
 

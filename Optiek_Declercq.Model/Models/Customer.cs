@@ -15,12 +15,10 @@ namespace Optiek_Declercq.Model.Models
         public int ID { get; set; }
         public string EmailAdress { get; set; }
         public string PhoneNumber { get; set; }
-
-        [ForeignKey("Address")]
         public int AddressID { get; set; }
-        public virtual Address GetAddress { get; set; }
-
+        public Address Address { get; set; }
         public int CompanyID { get; set; }
+        public Company Company { get; set; }
 
 
     }
