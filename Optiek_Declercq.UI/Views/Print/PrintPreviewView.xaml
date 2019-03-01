@@ -15,17 +15,33 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Skins/PrintSkin.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="WrappedColumnHeaderStyle" TargetType="{x:Type DataGridColumnHeader}">
+                <Setter Property="ContentTemplate">
+                    <Setter.Value>
+                        <DataTemplate>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding}"></TextBlock>
+                        </DataTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
         </ResourceDictionary>
     </Page.Resources>
 
-    <Grid>
-        <FlowDocumentScrollViewer>
-            <FlowDocument>
+    <Grid Background="White">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Button Content="Print" Command="{Binding PrintCommand}" CommandParameter="{Binding ElementName=PrintableFlowDocument}"/>
+        <FlowDocumentScrollViewer DataContext="{Binding FlowDocument, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1">
+            <FlowDocument x:Name="PrintableFlowDocument">
                 <Paragraph>
                     <InlineUIContainer>
-                        <Grid x:Name="HeaderCustomerDetail" VerticalAlignment="Stretch">
+                        <Grid x:Name="HeaderCustomerDetail" Margin="0" Width="541">
                             <Grid.RowDefinitions>
-                                <RowDefinition/>
+                                <RowDefinition Height="100"/>
                                 <RowDefinition/>
                                 <RowDefinition/>
                                 <RowDefinition/>
@@ -42,38 +58,55 @@
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
+                                <ColumnDefinition Width="10*"/>
+                                <ColumnDefinition Width="9*"/>
                             </Grid.ColumnDefinitions>
-                            <Image Source="/Resources/OptiekLogo.png"
-                                   Grid.Column="0"
-                                   Grid.Row="0"/>
-                            <DockPanel Grid.Column="1" LastChildFill="True">
-                                <StackPanel>
-                                    <Label Content="Optiek Declercq" FontSize="22" FontWeight="Bold" HorizontalAlignment="Right"/>
-                                    <Label Content="(Zonne)brillen, lenzen en hoorapparaten" FontSize="12"/>
-                                    <Label Content="Leveringsbon" HorizontalAlignment="Right"/>
-                                    <Label Content=""></Label>
-                                    <Label Content="Dhr. Parrein Stephen" FontSize="12"/>
-                                    <Label Content="Boomstraat 1" FontSize="12"/>
-                                    <Label Content="8890 Moorslede" FontSize="12"/>
-                                </StackPanel>
-                            </DockPanel>
-                        
+                            <Image Source="/Resources/OptiekLogo.png" Grid.Row="0"/>
+                            <Label Content="Hondstraat 33" FontSize="12" Grid.Row="1" FontWeight="Bold"/>
+                            <Label Content="8870 Izegem" FontSize="12" Grid.Row="2" FontWeight="Bold"/>
+                            <Label Content="Tel: 051/31 34 41" FontSize="12" Grid.Row="3"/>
+                            <Label Content="Fax: 051/31 34 41" FontSize="12" Grid.Row="4"/>
+                            <Label Content="" FontSize="12" Grid.Row="5"/>
+                            <Label Content="Btw nr.:    BE 0523 855 527" FontSize="12" Grid.Row="6"/>
+                            <Label Content="Erk. nr.:   1-6.64876.59.600" FontSize="12" Grid.Row="7"/>
+                            <Label Content="IBAN:       BE45-2850-2764-1389" FontSize="12" Grid.Row="8"/>
+                            <Label Grid.Column="1" Width="100"/>
+                            <StackPanel Grid.Column="2">
+                                <Label Content="Optiek Declercq" FontSize="22" FontWeight="Bold" HorizontalAlignment="Right"/>
+                                <Label Content="(Zonne)brillen, lenzen en hoorapparaten" FontSize="10" HorizontalAlignment="Right"/>
+                                <Label Content="Leveringsbon" HorizontalAlignment="Right"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="2" Grid.Row="1" Grid.RowSpan="3">
+                                <Label Content="Dhr. Parrein Stephen" FontSize="10" HorizontalAlignment="Right"/>
+                                <Label Content="Boomstraat 1" FontSize="10" HorizontalAlignment="Right"/>
+                                <Label Content="8890 Moorslede" FontSize="10" HorizontalAlignment="Right"/>
+                            </StackPanel>
                         </Grid>
                     </InlineUIContainer>
                 </Paragraph>
                 <Paragraph>
                     <InlineUIContainer>
-                        <Grid x:Name="InvoiceDetail">
-
+                        <Grid x:Name="InvoiceDetail" HorizontalAlignment="Stretch">
+                            <Label Content="Factuur datum"></Label>
                         </Grid>
                     </InlineUIContainer>
                 </Paragraph>
                 <Paragraph>
                     <InlineUIContainer>
-                        <Grid x:Name="InvoiceRules">
+                        <Grid x:Name="InvoiceRules" Height="256" Width="547">
+                            <DataGrid Width="auto" 
+                                      FontSize="10"
+                                      Background="LightPink"
+                                      ColumnWidth="*"
+                                      >
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Width="*" Header="Omschrijving"/>
+                                    <DataGridTextColumn Header="Aantal"/>
+                                    <DataGridTextColumn HeaderStyle="{StaticResource WrappedColumnHeaderStyle}" Header="Stuk prijs incl. BTW"/>
+                                    <DataGridTextColumn Header=""/>
 
+                                </DataGrid.Columns>
+                            </DataGrid>
                         </Grid>
                     </InlineUIContainer>
                 </Paragraph>

@@ -71,6 +71,7 @@
     <Compile Include="EF\OptiekDbContext.cs" />
     <Compile Include="EF\Repository.cs" />
     <Compile Include="EF\UnitOfWork.cs" />
+    <Compile Include="Includes\CompanyIncludes.cs" />
     <Compile Include="Includes\CustomerIncludes.cs" />
     <Compile Include="Includes\InvoiceIncludes.cs" />
     <Compile Include="Includes\InvoiceRuleIncludes.cs" />

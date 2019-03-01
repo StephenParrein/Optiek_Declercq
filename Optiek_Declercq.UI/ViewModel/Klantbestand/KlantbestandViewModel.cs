@@ -11,6 +11,7 @@ namespace Optiek_Declercq.UI.ViewModel.Klantbestand
 {
     class KlantbestandViewModel : ViewModelBase
     {
+        private readonly CustomerService customerService;
         private IList<Customer> _ListCustomers { get; set; }
         public IList<Customer> ListCustomers
         {
@@ -34,7 +35,8 @@ namespace Optiek_Declercq.UI.ViewModel.Klantbestand
 
         public KlantbestandViewModel()
         {
-            //ListCustomers = new CustomerService().All();
+            this.customerService = new CustomerService();
+            ListCustomers = customerService.All();
         }
     }
 }

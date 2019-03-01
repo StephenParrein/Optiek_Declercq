@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optiek_Declercq.Services", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optiek_Declercq.Exception", "Optiek_Declercq.Exception\Optiek_Declercq.Exception.csproj", "{032AD8F4-7910-4DE5-A328-3E9D6B7E7A0F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Optiek_Declercq.Tests", "Optiek_Declercq.Tests\Optiek_Declercq.Tests.csproj", "{26C1A95D-5674-43D8-A983-CD8A9B566D0A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{032AD8F4-7910-4DE5-A328-3E9D6B7E7A0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{032AD8F4-7910-4DE5-A328-3E9D6B7E7A0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{032AD8F4-7910-4DE5-A328-3E9D6B7E7A0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26C1A95D-5674-43D8-A983-CD8A9B566D0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26C1A95D-5674-43D8-A983-CD8A9B566D0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26C1A95D-5674-43D8-A983-CD8A9B566D0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26C1A95D-5674-43D8-A983-CD8A9B566D0A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,6 +63,7 @@ Global
 		{4C555B81-061C-49FE-B512-08AFE416033B} = {A88DC82B-6ED7-4D36-B41A-72902ADA3B8A}
 		{B0CA6201-CA47-481A-BF74-C2BC5BECD55B} = {80013234-21BA-4C20-8414-9D6EAAA113E5}
 		{032AD8F4-7910-4DE5-A328-3E9D6B7E7A0F} = {80013234-21BA-4C20-8414-9D6EAAA113E5}
+		{26C1A95D-5674-43D8-A983-CD8A9B566D0A} = {3C90EAA5-5B3C-4AB4-8D09-48431318A4D8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C57E7AAD-80F7-4433-A649-BABD03915AEA}

@@ -15,5 +15,7 @@ namespace Optiek_Declercq.Model.Models
         public string CompanyName { get; set; }
         public string CompanyVatNumber { get; set; }
         public bool CompanyProFormaBilling { get; set; }
+        public int AddressID { get; set; }
+        public Address Address { get; set; }
     }
 }
