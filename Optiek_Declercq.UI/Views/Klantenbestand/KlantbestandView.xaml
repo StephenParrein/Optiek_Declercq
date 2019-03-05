@@ -21,18 +21,25 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-
         <DockPanel Grid.Row="0" LastChildFill="False" Width="Auto">
-            <Button Content="Nieuwe klant"/>
+            <Button Content="Nieuwe klant" Command="{Binding AddCommand}"/>
             <Button Content="Klant bewerken" Command="{Binding EditSelectedItem}"/>
             <Button Content="Klant verwijderen" Command="{Binding PromptDeleteSelectedItem}"/>
             <RichTextBox Width="200" DockPanel.Dock="Right" Margin="5 5 5 5"/>
             <Label Content="Zoeken" DockPanel.Dock="Right"/>
         </DockPanel>
 
-        <DataGrid Grid.Row="1" ItemsSource="{Binding ListCustomers, UpdateSourceTrigger=PropertyChanged}" >
+        <DataGrid Grid.Row="1" 
+                  ItemsSource="{Binding ListCustomers, UpdateSourceTrigger=PropertyChanged}" 
+                  SelectionMode="Extended"
+                  SelectedItem="{Binding SelectedCustomer, UpdateSourceTrigger=PropertyChanged}"
+                  AutoGenerateColumns="False"
+                  AreRowDetailsFrozen="True"
+                  EnableColumnVirtualization="False" EnableRowVirtualization="False"
+                  IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Klant #" Width="75" Binding="{Binding ID}"/>
                 <DataGridTextColumn Header="Naam" Width="100" Binding="{Binding Name}"/>
@@ -45,12 +52,21 @@
                 <DataGridTextColumn Header="Bedrijfsnaam" Binding="{Binding Company.CompanyName}"/>
                 <DataGridTextColumn Header="BTW nummer" Binding="{Binding Company.CompanyVatNumber}"/>
             </DataGrid.Columns>
+            <DataGrid.InputBindings>
+                <MouseBinding MouseAction="LeftDoubleClick" Command="{Binding EditCommand}" />
+                <KeyBinding Key="Return" Command="{Binding EditCommand}"/>
+                <KeyBinding Key="Delete" Command="{Binding DeleteCommand}"/>
+            </DataGrid.InputBindings>
         </DataGrid>
 
-        <DockPanel Grid.Row="2">
+        <Grid Grid.Row="2" Visibility="{Binding EditPartialVisible, UpdateSourceTrigger=PropertyChanged}">
+            <Label Content="Naam"/>
+            <TextBox Text="{Binding EditCustomer.Naam}"/>
+        </Grid>
+        
+        <DockPanel Grid.Row="3">
             <Label Content="x klanten geladen" HorizontalAlignment="Left"/>
             <Label Content="ErrorLabel" FontWeight="Bold" Foreground="Red" HorizontalAlignment="Right"/>
         </DockPanel>
-
     </Grid>
 </Page>
