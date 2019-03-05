@@ -10,6 +10,7 @@ namespace Optiek_Declercq.Repository.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            ContextKey = "Optiek_Declercq.Repository.EF.OptiekDbContext";
         }
 
         protected override void Seed(Optiek_Declercq.Repository.EF.OptiekDbContext context)

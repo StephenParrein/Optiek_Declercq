@@ -1,6 +1,6 @@
 ﻿using GalaSoft.MvvmLight;
 using Optiek_Declercq.Model.Models;
-using Optiek_Declercq.Services;
+using Optiek_Declercq.Services.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;

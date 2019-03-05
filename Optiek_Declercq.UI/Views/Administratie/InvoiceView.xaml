@@ -92,7 +92,7 @@
         </DataGrid>
 
         <Grid Grid.Row="4">
-            <DockPanel Visibility="{Binding EditPartialVisible, UpdateSourceTrigger=PropertyChanged}">
+            <DockPanel>
                 <Label Content="HideTest" Visibility="{Binding EditPartialVisible, UpdateSourceTrigger=PropertyChanged}"/>
             </DockPanel>
         </Grid>

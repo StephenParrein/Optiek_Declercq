@@ -49,5 +49,7 @@ namespace Optiek_Declercq.Repository.Repos
 
             return query;
         }
+
+        public OptiekDbContext OptiekDbContext => Context as OptiekDbContext;
     }
 }

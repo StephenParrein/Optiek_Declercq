@@ -15,5 +15,7 @@ namespace Optiek_Declercq.Repository.Repos
         public InvoiceRepository(DbContext context) : base(context)
         {
         }
+
+        public OptiekDbContext OptiekDbContext => Context as OptiekDbContext;
     }
 }

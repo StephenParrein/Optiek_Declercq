@@ -9,8 +9,12 @@ using System.Threading.Tasks;
 
 namespace Optiek_Declercq.Repository.EF
 {
-    class OptiekDbContext : DbContext
+    public class OptiekDbContext : DbContext
     {
+        public OptiekDbContext()
+        {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<OptiekDbContext, Optiek_Declercq.Repository.Migrations.Configuration>());
+        }
 
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Company> Companies { get; set; }
