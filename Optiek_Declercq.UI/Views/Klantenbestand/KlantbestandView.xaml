@@ -32,18 +32,18 @@
             <Label Content="Zoeken" DockPanel.Dock="Right"/>
         </DockPanel>
 
-        <DataGrid Grid.Row="1">
+        <DataGrid Grid.Row="1" ItemsSource="{Binding ListCustomers, UpdateSourceTrigger=PropertyChanged}" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Klant #" Width="75" Binding="{Binding DocumentDate}"/>
-                <DataGridTextColumn Header="Naam" Width="100" Binding="{Binding DocumentNumber}"/>
-                <DataGridTextColumn Header="Voornaam" Width="100" Binding="{Binding DocumentType}"/>
-                <DataGridTextColumn Header="Adresregel" Width="*" Binding="{Binding DocumentCustomer}"/>
-                <DataGridTextColumn Header="Postcode" Width="*" Binding="{Binding DocumentDescription}"/>
-                <DataGridTextColumn Header="Stad/Gemeente" Width="*" Binding="{Binding DocumentDescription}"/>
-                <DataGridTextColumn Header="E-mail adres" Width="*" Binding="{Binding DocumentDescription}"/>
-                <DataGridTextColumn Header="Telefoonnummer" Binding="{Binding DocumentSendState}" Width="200"/>
-                <DataGridTextColumn Header="Bedrijfsnaam"/>
-                <DataGridTextColumn Header="BTW nummer"/>
+                <DataGridTextColumn Header="Klant #" Width="75" Binding="{Binding ID}"/>
+                <DataGridTextColumn Header="Naam" Width="100" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Voornaam" Width="100" Binding="{Binding FirstName}"/>
+                <DataGridTextColumn Header="Adresregel" Width="*" Binding="{Binding Address.StreetWithNumber}"/>
+                <DataGridTextColumn Header="Postcode" Width="*" Binding="{Binding Address.PostCode}"/>
+                <DataGridTextColumn Header="Stad/Gemeente" Width="*" Binding="{Binding Address.City}"/>
+                <DataGridTextColumn Header="E-mail adres" Width="*" Binding="{Binding EmailAdress}"/>
+                <DataGridTextColumn Header="Telefoonnummer" Binding="{Binding PhoneNumber}" Width="200"/>
+                <DataGridTextColumn Header="Bedrijfsnaam" Binding="{Binding Company.CompanyName}"/>
+                <DataGridTextColumn Header="BTW nummer" Binding="{Binding Company.CompanyVatNumber}"/>
             </DataGrid.Columns>
         </DataGrid>
 
