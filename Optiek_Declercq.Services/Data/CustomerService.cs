@@ -29,7 +29,11 @@ namespace Optiek_Declercq.Services.Data
 
         public IList<Customer> All()
         {
-            return All(null);
+            CustomerIncludes includes = new CustomerIncludes();
+            includes.AddressDetails = true;
+            includes.CompanyDetails = true;
+
+            return All(includes);
         }
 
         public IList<Customer> All(CustomerIncludes includes)

@@ -28,6 +28,8 @@
             <Button Content="Nieuwe klant" Command="{Binding AddCommand}"/>
             <Button Content="Klant bewerken" Command="{Binding EditSelectedItem}"/>
             <Button Content="Klant verwijderen" Command="{Binding PromptDeleteSelectedItem}"/>
+            <Button Content="Adressen bewerken" Command="{Binding EditAddressRules}"/>
+            <Button Content="Bedrijven bewerken" Command="{Binding EditCompanyRules}"/>
             <RichTextBox Width="200" DockPanel.Dock="Right" Margin="5 5 5 5"/>
             <Label Content="Zoeken" DockPanel.Dock="Right"/>
         </DockPanel>
@@ -44,13 +46,13 @@
                 <DataGridTextColumn Header="Klant #" Width="75" Binding="{Binding ID}"/>
                 <DataGridTextColumn Header="Naam" Width="100" Binding="{Binding Name}"/>
                 <DataGridTextColumn Header="Voornaam" Width="100" Binding="{Binding FirstName}"/>
-                <DataGridTextColumn Header="Adresregel" Width="*" Binding="{Binding Address.StreetWithNumber}"/>
-                <DataGridTextColumn Header="Postcode" Width="*" Binding="{Binding Address.PostCode}"/>
-                <DataGridTextColumn Header="Stad/Gemeente" Width="*" Binding="{Binding Address.City}"/>
-                <DataGridTextColumn Header="E-mail adres" Width="*" Binding="{Binding EmailAdress}"/>
+                <DataGridTextColumn Header="Adresregel" Width="150" Binding="{Binding Address.StreetWithNumber}"/>
+                <DataGridTextColumn Header="Postcode" Width="75" Binding="{Binding Address.PostCode}"/>
+                <DataGridTextColumn Header="Stad/Gemeente" Width="150" Binding="{Binding Address.City}"/>
+                <DataGridTextColumn Header="E-mail adres" Width="300" Binding="{Binding EmailAdress}"/>
                 <DataGridTextColumn Header="Telefoonnummer" Binding="{Binding PhoneNumber}" Width="200"/>
-                <DataGridTextColumn Header="Bedrijfsnaam" Binding="{Binding Company.CompanyName}"/>
-                <DataGridTextColumn Header="BTW nummer" Binding="{Binding Company.CompanyVatNumber}"/>
+                <DataGridTextColumn Header="Bedrijfsnaam" Width="*" Binding="{Binding Company.CompanyName}"/>
+                <DataGridTextColumn Header="BTW nummer" Width="*" Binding="{Binding Company.CompanyVatNumber}"/>
             </DataGrid.Columns>
             <DataGrid.InputBindings>
                 <MouseBinding MouseAction="LeftDoubleClick" Command="{Binding EditCommand}" />
@@ -59,14 +61,61 @@
             </DataGrid.InputBindings>
         </DataGrid>
 
-        <Grid Grid.Row="2" Visibility="{Binding EditPartialVisible, UpdateSourceTrigger=PropertyChanged}">
-            <Label Content="Naam"/>
-            <TextBox Text="{Binding EditCustomer.Naam}"/>
+        <Grid Grid.Row="2" Visibility="{Binding EditPartialVisible, UpdateSourceTrigger=PropertyChanged}"
+              HorizontalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Naam" Grid.Row="0" Grid.Column="0"/>
+            <TextBox Text="{Binding EditCustomer.Name, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="0"/>
+
+            <Label Content="Voornaam" Grid.Row="0" Grid.Column="1"/>
+            <TextBox Text="{Binding EditCustomer.FirstName, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="1"/>
+            
+            <Label Content="E-mail" Grid.Row="0" Grid.Column="2"/>
+            <TextBox Text="{Binding EditCustomer.EmailAdress, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="2"/>
+
+            <Label Content="Telefoon nummer" Grid.Row="0" Grid.Column="3"/>
+            <TextBox Text="{Binding EditCustomer.PhoneNumber, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="3"/>
+
+            <Label Content="Adres" Grid.Row="2" Grid.Column="0"/>
+            <ComboBox Text="{Binding EditCustomer.Address.StreetWithNumber, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding AddressRules, UpdateSourceTrigger=PropertyChanged}" Grid.Row="3" Grid.Column="0"/>
+            <Button Content="Adressen bewerken" Grid.Row="4" 
+                    Grid.Column="0" Command="{Binding EditAddressRules, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <Label Content="Bedrijf" Grid.Row="2" Grid.Column="1"/>
+            <ComboBox Text="{Binding EditCustomer.Company.CompanyName, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding CompanyRules, UpdateSourceTrigger=PropertyChanged}" Grid.Row="3" Grid.Column="1"/>
+            <Button Content="Bedrijven bewerken" Grid.Row="4" 
+                    Grid.Column="1" Command="{Binding EditCompanyRules}"/>
+            
+            <Separator Grid.Row="5" Grid.ColumnSpan="5"/>
+
+            <DockPanel Grid.Row="6" LastChildFill="False">
+                <Button Content="Klant verwijderen" Command="{Binding DeleteCustomer}"/>
+            </DockPanel>
+
+            <DockPanel Grid.Row="6" Grid.Column="4" LastChildFill="False" HorizontalAlignment="Right">
+                <Button Content="Opslaan" Command="{Binding SaveChanges}"/>
+                <Button Content="Annuleren" Command="{Binding CancelChanges}"/>
+            </DockPanel>
         </Grid>
         
         <DockPanel Grid.Row="3">
-            <Label Content="x klanten geladen" HorizontalAlignment="Left"/>
-            <Label Content="ErrorLabel" FontWeight="Bold" Foreground="Red" HorizontalAlignment="Right"/>
+            <Label Content="{Binding StatusLabel, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left"/>
+            <Label Content="{Binding ErrorLabel, UpdateSourceTrigger=PropertyChanged}" FontWeight="Bold" Foreground="Red" HorizontalAlignment="Right"/>
         </DockPanel>
     </Grid>
 </Page>
