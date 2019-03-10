@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{032AD8F4-7910-4DE5-A328-3E9D6B7E7A0F}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Optiek_Declercq.Exception</RootNamespace>
-    <AssemblyName>Optiek_Declercq.Exception</AssemblyName>
+    <RootNamespace>Optiek_Declercq.Exceptions</RootNamespace>
+    <AssemblyName>Optiek_Declercq.Exceptions</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -57,7 +57,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="ApplicationException.cs" />
+    <Compile Include="CustomerValidation.cs" />
+    <Compile Include="ExDictionary.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExDictionary.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -73,6 +79,12 @@
       <Project>{4c555b81-061c-49fe-b512-08afe416033b}</Project>
       <Name>Optiek_Declercq.Repository</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ExDictionary.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ExDictionary.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
