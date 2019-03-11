@@ -1,4 +1,5 @@
-﻿using Optiek_Declercq.Model.Models;
+﻿using Optiek_Declercq.Exceptions;
+using Optiek_Declercq.Model.Models;
 using Optiek_Declercq.Repository.Includes;
 using Optiek_Declercq.Repository.Repos;
 using Optiek_Declercq.Services.Contracts;
@@ -57,5 +58,42 @@ namespace Optiek_Declercq.Services.Data
             }
         }
 
+        public Customer Edit(Customer entity)
+        {
+            using (var unitOfWork = unitOfWorkFactory.CreateInstance())
+            {
+                if (!new CustomerValidation().CheckCustomerModel(entity)) { return null; }
+
+                var customer = unitOfWork.Customers.Get(entity.ID);
+                if (customer == null) { return null; }
+
+                customer.Name = entity.Name;
+                customer.FirstName = customer.FirstName;
+                customer.AddressID = entity.AddressID;
+                customer.CompanyID = entity.CompanyID;
+                customer.EmailAdress = entity.EmailAdress;
+                customer.PhoneNumber = entity.PhoneNumber;
+
+                var numberOfObjectsUpdated = unitOfWork.Complete();
+                if (numberOfObjectsUpdated > 0) { return customer; }
+
+                return null;
+            }
+        }
+
+        public bool Remove(int id)
+        {
+            using (var unitOfWork = unitOfWorkFactory.CreateInstance())
+            {
+                var customer = unitOfWork.Customers.Get(id);
+                if (customer == null)
+                    return false;
+
+                unitOfWork.Customers.Remove(customer);
+
+                var numberOfObjectsUpdated = unitOfWork.Complete();
+                return numberOfObjectsUpdated > 0;
+            }
+        }
     }
 }

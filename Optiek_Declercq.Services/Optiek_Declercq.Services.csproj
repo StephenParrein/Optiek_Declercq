@@ -70,8 +70,20 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IAddressService.cs" />
+    <Compile Include="Contracts\ICompanyService.cs" />
+    <Compile Include="Contracts\ICustomerService.cs" />
+    <Compile Include="Contracts\IErrorLogService.cs" />
+    <Compile Include="Contracts\IInvoiceRuleService.cs" />
+    <Compile Include="Contracts\IInvoiceService.cs" />
+    <Compile Include="Contracts\IService.cs" />
     <Compile Include="Contracts\IUnitOfWorkFactory.cs" />
+    <Compile Include="Data\AddressService.cs" />
+    <Compile Include="Data\CompanyService.cs" />
     <Compile Include="Data\CustomerService.cs" />
+    <Compile Include="Data\ErrorLogService.cs" />
+    <Compile Include="Data\InvoiceRuleService.cs" />
+    <Compile Include="Data\InvoiceService.cs" />
     <Compile Include="Factories\UnitOfWorkFactory.cs" />
     <Compile Include="Mail\MailSenderService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -103,6 +115,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Optiek_Declercq.Exception\Optiek_Declercq.Exception.csproj">
+      <Project>{032AD8F4-7910-4DE5-A328-3E9D6B7E7A0F}</Project>
+      <Name>Optiek_Declercq.Exception</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Optiek_Declercq.Model\Optiek_Declercq.Model.csproj">
       <Project>{15DAE08E-D710-459E-985D-181C4BC79178}</Project>
       <Name>Optiek_Declercq.Model</Name>
@@ -110,6 +126,10 @@
     <ProjectReference Include="..\Optiek_Declercq.Repository\Optiek_Declercq.Repository.csproj">
       <Project>{4C555B81-061C-49FE-B512-08AFE416033B}</Project>
       <Name>Optiek_Declercq.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Optiek_Declercq.Tests\Optiek_Declercq.Tests.csproj">
+      <Project>{26c1a95d-5674-43d8-a983-cd8a9b566d0a}</Project>
+      <Name>Optiek_Declercq.Tests</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

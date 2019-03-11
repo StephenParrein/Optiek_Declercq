@@ -29,7 +29,7 @@ namespace Optiek_Declercq.Repository.Repos
         {
             var query = Context.Set<Customer>().AsQueryable();
             query = AddIncludes(query, includes);
-            return query.Where(predicate).AsEnumerable(); //Add the where clause and return IEnumerable<Item>
+            return query.Where(predicate).AsEnumerable();
         }
 
         public Customer Get(int id, CustomerIncludes includes)

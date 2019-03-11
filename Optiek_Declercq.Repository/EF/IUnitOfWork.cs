@@ -13,7 +13,7 @@ namespace Optiek_Declercq.Repository.EF
         ICompanyRepository Companies { get; }
         ICustomerRepository Customers { get; }
         IErrorLogRepository ErrorLogs { get; }
-        IInvoiceRuleRepository Invoices { get; }
+        IInvoiceRepository Invoices { get; }
         IInvoiceRuleRepository InvoiceRules { get; }
        
         int Complete();

@@ -32,7 +32,7 @@ namespace Optiek_Declercq.Repository.EF
 
         public IErrorLogRepository ErrorLogs { get; }
 
-        public IInvoiceRuleRepository Invoices { get; }
+        public IInvoiceRepository Invoices { get; }
 
         public IInvoiceRuleRepository InvoiceRules { get; }
 

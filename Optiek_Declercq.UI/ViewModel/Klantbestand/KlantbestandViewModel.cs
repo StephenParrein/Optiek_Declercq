@@ -1,8 +1,8 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using Optiek_Declercq.Exceptions;
 using Optiek_Declercq.Model.Models;
 using Optiek_Declercq.Services.Data;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -145,13 +145,12 @@ namespace Optiek_Declercq.UI.ViewModel.Klantbestand
 
         private void ExecuteSaveChanges()
         {
-            if (EditCustomer.ID == 0)
+            try
+            {                
+                new CustomerService().Edit(EditCustomer);
+            }catch(ApplicationException e)
             {
-
-            }
-            else
-            {
-
+                ErrorLabel = e.Message;
             }
         }
 

@@ -207,6 +207,10 @@
     <Resource Include="Resources\VivesLogoIcon.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Optiek_Declercq.Exception\Optiek_Declercq.Exception.csproj">
+      <Project>{032AD8F4-7910-4DE5-A328-3E9D6B7E7A0F}</Project>
+      <Name>Optiek_Declercq.Exception</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Optiek_Declercq.Model\Optiek_Declercq.Model.csproj">
       <Project>{15dae08e-d710-459e-985d-181c4bc79178}</Project>
       <Name>Optiek_Declercq.Model</Name>

@@ -5,17 +5,19 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Optiek_Declercq.Repository.Repos
 {
-    public class InvoiceRepository : Repository<Invoice>, IInvoiceRuleRepository
+    public class InvoiceRepository : Repository<Invoice>, IInvoiceRepository
     {
         public InvoiceRepository(DbContext context) : base(context)
         {
         }
 
         public OptiekDbContext OptiekDbContext => Context as OptiekDbContext;
+
     }
 }
